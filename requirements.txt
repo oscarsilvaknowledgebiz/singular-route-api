@@ -6,3 +6,4 @@ uuid
 pyasn1 == 0.4.8
 httpx
 coverage
+mongoengine == 0.24.2

@@ -27,3 +27,12 @@ class UserCreateResponse(BaseModel):
     """
     msg: str
     data: object = {}
+
+
+class UserGetResponse(BaseModel):
+    """
+    User get response scheme
+    """
+    msg: str
+    data: object = {}
+
