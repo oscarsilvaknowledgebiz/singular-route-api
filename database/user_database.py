@@ -25,7 +25,7 @@ def add_user(value):
         gmail_access_token = value.gmail_access_token,
         exponent_push_token = value.exponent_push_token
     ).save()
-    return str(response[0].auto_id_0)
+    return str(response.auto_id_0)
 
 
 def return_user_by_email_and_password(email, password):
