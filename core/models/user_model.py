@@ -15,3 +15,5 @@ class User(Document):
     birth_date = StringField()
     gmail_access_token = StringField()
     exponent_push_token = StringField()
+    address = StringField()
+    #partner = BooleanField()

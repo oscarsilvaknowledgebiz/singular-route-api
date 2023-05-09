@@ -19,6 +19,8 @@ class UserPost(BaseModel):
     birth_date: Optional[str] = Field(default=null, alias="birthDate", max_length=10)
     gmail_access_token: Optional[str] = Field(default=null, alias="gmailAccessToken")
     exponent_push_token: Optional[str] = Field(default=null, alias="exponentPushToken")
+    address: Optional[str] = Field(default=null, alias="Adress")
+    #partner: Optional[bool] = Field(default=False, alias="isPartner")
 
 
 class UserCreateResponse(BaseModel):

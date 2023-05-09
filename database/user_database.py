@@ -23,7 +23,9 @@ def add_user(value):
         phone = value.phone,
         birth_date = value.birth_date,
         gmail_access_token = value.gmail_access_token,
-        exponent_push_token = value.exponent_push_token
+        exponent_push_token = value.exponent_push_token,
+        address = value.adress
+        # partner = value.partner
     ).save()
     return str(response.auto_id_0)
 
