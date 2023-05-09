@@ -2,6 +2,7 @@ from mongoengine import connect
 import core.models as model
 import json
 
+import core.models.user_model
 
 CONNECTION = 'mongodb+srv://basic_user:n1RmcatLryuYJwYY@knowledgebiz-cluster.m8nzdrm.mongodb.net/singular-route?retryWrites=true&w=majority'
 
@@ -13,6 +14,14 @@ def add_user(value):
     :return:
     """
     connect(host=CONNECTION)
+
+    address = core.models.user_model.ModelUserAddress()
+    address.city = value.address.city
+    address.street = value.address.street
+    address.country = value.address.country
+    address.door_number = value.address.door_number
+    address.postal_code = value.address.postal_code
+
     response = model.user_model.User(
         name = value.name,
         email = value.email,
@@ -23,9 +32,11 @@ def add_user(value):
         phone = value.phone,
         birth_date = value.birth_date,
         gmail_access_token = value.gmail_access_token,
-        exponent_push_token = value.exponent_push_token
+        exponent_push_token = value.exponent_push_token,
+        address = address
+        # partner = value.partner
     ).save()
-    return str(response[0].auto_id_0)
+    return str(response.auto_id_0)
 
 
 def return_user_by_email_and_password(email, password):
