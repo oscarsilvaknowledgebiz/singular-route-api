@@ -1,4 +1,13 @@
-from mongoengine import Document, ObjectIdField, StringField, BooleanField
+from mongoengine import Document, ObjectIdField, StringField, BooleanField, EmbeddedDocumentField, EmbeddedDocument
+
+
+class ModelUserAddress(EmbeddedDocument):
+    street = StringField()
+    city = StringField()
+    country = StringField()
+    postal_code = StringField()
+    door_number = StringField()
+
 
 class User(Document):
     """
@@ -15,5 +24,5 @@ class User(Document):
     birth_date = StringField()
     gmail_access_token = StringField()
     exponent_push_token = StringField()
-    address = StringField()
+    address = EmbeddedDocumentField(ModelUserAddress)
     #partner = BooleanField()
