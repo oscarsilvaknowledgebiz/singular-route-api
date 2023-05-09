@@ -36,7 +36,7 @@ def add_user(value):
         address = address
         # partner = value.partner
     ).save()
-    return str(response.auto_id_0)
+    return str(response[0].auto_id_0)
 
 
 def return_user_by_email_and_password(email, password):
