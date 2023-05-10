@@ -25,6 +25,7 @@ app.add_middleware(
 
 
 app.include_router(routers.user_router.router, prefix="/user", tags=["user"])
+app.include_router(routers.history_router.router, prefix="/history", tags=["history"])
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=2828)
