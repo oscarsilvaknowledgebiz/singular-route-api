@@ -32,7 +32,7 @@ def add_restaurant(value):
     return str(response.auto_id_0)
 
 
-def return_restaurant(email, password):
+def return_restaurant():
     connect(host=CONNECTION)
     response = model.restaurants_model.Restaurants.objects()
     response = json.loads(response.to_json()) if response is not None else None
