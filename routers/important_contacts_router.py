@@ -19,9 +19,9 @@ async def create_important_contact(important_contact: core.schemes.important_con
 
 
 @router.get("/",
-            summary= "Return important contact",
-            description= "Return important contact",
-            response_model= core.schemes.important_contacts_schemes.ImportantContactsCreateResponse,
+            summary="Return important contact",
+            description="Return important contact",
+            response_model=core.schemes.important_contacts_schemes.ImportantContactsCreateResponse,
             operation_id="GetImportantContact"
             )
 async def service(response: Response):
@@ -31,4 +31,4 @@ async def service(response: Response):
         return {"msg": "error", "data": "This User does not exist"}
     else:
         return {"msg": "success",
-            "data": response_database}
+                "data": response_database}
