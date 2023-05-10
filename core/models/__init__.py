@@ -1,1 +1,1 @@
-from core.models import user_model
+from core.models import user_model, wishlist_model

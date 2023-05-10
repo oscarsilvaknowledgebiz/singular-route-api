@@ -1,1 +1,1 @@
-from database import user_database
+from database import user_database, wishlist_database
