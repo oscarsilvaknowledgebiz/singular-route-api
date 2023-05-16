@@ -1,1 +1,4 @@
-from database import user_database, wishlist_database
+from database import user_database
+from database import restaurants_database
+from database import wishlist_database
+from database import attractions_database
