@@ -30,4 +30,5 @@ async def service(response: Response, email: str, password: str):
         response.status_code = status.HTTP_404_NOT_FOUND
         return {"msg": "error", "data": "This User does not exist"}
     else:
-        return {"msg": "success", "data": response_database}
+        return {"msg": "success",
+                "data": response_database}
