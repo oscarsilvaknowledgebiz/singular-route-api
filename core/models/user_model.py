@@ -26,3 +26,7 @@ class User(Document):
     exponent_push_token = StringField()
     address = EmbeddedDocumentField(ModelUserAddress)
     #partner = BooleanField()
+
+
+class ForgotPassword(Document):
+    email = StringField()

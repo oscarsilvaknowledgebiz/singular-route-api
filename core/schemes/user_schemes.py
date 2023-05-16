@@ -46,3 +46,12 @@ class UserGetResponse(BaseModel):
     msg: str
     data: object = {}
 
+
+class ForgotPassword(BaseModel):
+    email: str
+
+
+class ForgotPasswordCreateResponse(BaseModel):
+    msg: str
+    data: object = {}
+
