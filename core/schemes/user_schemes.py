@@ -5,12 +5,13 @@ from pyasn1.compat.octets import null
 from fastapi import Depends
 
 
-class UserAdress(BaseModel):
+class UserAddress(BaseModel):
     street: str
     city: str
     country: str
     postal_code: str
     door_number: str
+
 
 class UserPost(BaseModel):
     """
@@ -27,7 +28,7 @@ class UserPost(BaseModel):
     birth_date: Optional[str] = Field(default=null, alias="birthDate", max_length=10)
     gmail_access_token: Optional[str] = Field(default=null, alias="gmailAccessToken")
     exponent_push_token: Optional[str] = Field(default=null, alias="exponentPushToken")
-    address: UserAdress
+    address: UserAddress
     #partner: Optional[bool] = Field(default=False, alias="isPartner")
 
 

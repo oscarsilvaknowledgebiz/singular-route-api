@@ -19,9 +19,9 @@ async def create_new(new: core.schemes.news_schemes.NewsPost):
 
 
 @router.get("/by-id/",
-            summary= "Return news",
-            description= "Return news",
-            response_model= core.schemes.news_schemes.NewsGetResponse,
+            summary="Return news",
+            description="Return news",
+            response_model=core.schemes.news_schemes.NewsGetResponse,
             operation_id="GetUserDataByIdUser"
             )
 async def service(response: Response):
@@ -31,4 +31,4 @@ async def service(response: Response):
         return {"msg": "error", "data": "This User does not exist"}
     else:
         return {"msg": "success",
-            "data": response_database}
+                "data": response_database}

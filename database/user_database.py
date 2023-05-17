@@ -5,7 +5,6 @@ import random
 from datetime import datetime
 import core.models.user_model
 
-
 CONNECTION = 'mongodb+srv://basic_user:n1RmcatLryuYJwYY@knowledgebiz-cluster.m8nzdrm.mongodb.net/singular-route?retryWrites=true&w=majority'
 
 
@@ -54,7 +53,17 @@ def return_user_by_email(email):
     return response
 
 
-def recover_password(value):
-    response = model.user_model.ForgotPassword
-    password_recovery_temporary_code = random.randint(000000, 999999)
-    password_recovery_timestamp = datetime.now()
+def add_recover_password(value):
+    response = model.user_model.ForgotPassword(
+        user_email=value["email"],
+        code=random.randint(000000, 999999),
+        created=str(datetime.now())
+    ).save()
+    return str(response.auto_id_0)
+
+
+def return_verify_email_and_code(user_email, code):
+    connect(host=CONNECTION)
+    response = model.user_model.ForgotPassword.objects(user_email=user_email, code=code).first()
+    response = json.loads(response.to_json()) if response is not None else None
+    return response
