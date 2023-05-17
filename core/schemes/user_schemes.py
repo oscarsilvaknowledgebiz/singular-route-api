@@ -56,3 +56,10 @@ class ForgotPasswordCreateResponse(BaseModel):
     msg: str
     data: object = {}
 
+
+class UserUpdatePasswordResponse(BaseModel):
+    """
+    User create response
+    """
+    msg: str
+    data: object = {}

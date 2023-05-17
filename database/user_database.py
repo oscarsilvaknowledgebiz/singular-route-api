@@ -67,3 +67,15 @@ def return_verify_email_and_code(user_email, code):
     response = model.user_model.ForgotPassword.objects(user_email=user_email, code=code).first()
     response = json.loads(response.to_json()) if response is not None else None
     return response
+
+
+def update_user_password(email, password):
+    connect(host=CONNECTION)
+    response = model.user_model.User.objects(email=email)
+    response_update = response.update(password=password)
+    if response_update == 1:
+        return True
+    else:
+        return False
+
+
