@@ -18,3 +18,5 @@ class Restaurants(Document):
     restaurant_type = StringField()
     restaurant_additional_information = StringField()
     restaurant_personal_notes = StringField()
+    restaurant_pet_friendly = BooleanField()
+    restaurant_no_smokers = BooleanField()

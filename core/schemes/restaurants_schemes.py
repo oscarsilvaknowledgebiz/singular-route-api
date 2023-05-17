@@ -23,6 +23,8 @@ class RestaurantPost(BaseModel):
     restaurant_type: Optional[str] = Field(default=null, alias="Restaurant Type")
     restaurant_additional_information: Optional[str] = Field(default=null, alias="Additional Info")
     restaurant_personal_notes: Optional[str] = Field(default=null, alias="Personal Notes")
+    restaurant_pet_friendly: bool
+    restaurant_no_smokers: bool
 
 
 class RestaurantCreateResponse(BaseModel):

@@ -27,7 +27,9 @@ def add_restaurant(value):
         restaurant_pictures=value.restaurant_pictures,
         restaurant_type=value.restaurant_type,
         restaurant_additional_information=value.restaurant_additional_information,
-        restaurant_personal_notes=value.restaurant_personal_notes
+        restaurant_personal_notes=value.restaurant_personal_notes,
+        restaurant_pet_friendly = value.restaurant_pet_friendly,
+        restaurant_no_smokers = value.restaurant_no_smokers
     ).save()
     return str(response.auto_id_0)
 

@@ -22,6 +22,8 @@ class AttractionPost(BaseModel):
     attraction_price: str
     attraction_additional_information: Optional[str] = Field(default=null, alias="Attraction Additional Info")
     attraction_personal_notes: Optional[str] = Field(default=null, alias="Attraction Personal Notes")
+    attraction_pet_friendly: bool
+    attraction_no_smokers: bool
 
 
 class AttractionCreateResponse(BaseModel):
