@@ -27,7 +27,9 @@ def add_attraction(value):
         attraction_website=value.attraction_website,
         attraction_price=value.attraction_price,
         attraction_additional_information=value.attraction_additional_information,
-        attraction_personal_notes=value.attraction_personal_notes
+        attraction_personal_notes=value.attraction_personal_notes,
+        attraction_pet_friendly=value.attraction_pet_friendly,
+        attraction_no_smokers=value.attraction_no_smokers
     ).save()
     return str(response.auto_id_0)
 
