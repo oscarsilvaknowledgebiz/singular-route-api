@@ -1,4 +1,4 @@
-from mongoengine import Document, ObjectIdField, StringField, BooleanField, EmbeddedDocumentField, EmbeddedDocument
+from mongoengine import DateTimeField, IntField, Document, ObjectIdField, StringField, BooleanField, EmbeddedDocumentField, EmbeddedDocument
 
 
 class ModelUserAddress(EmbeddedDocument):
@@ -29,4 +29,9 @@ class User(Document):
 
 
 class ForgotPassword(Document):
-    email = StringField()
+    _id = ObjectIdField()
+    user_email = StringField()
+    code = IntField()
+    created = StringField()
+
+
