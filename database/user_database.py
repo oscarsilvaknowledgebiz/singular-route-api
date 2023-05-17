@@ -23,24 +23,24 @@ def add_user(value):
     address.postal_code = value.address.postal_code
 
     response = model.user_model.User(
-        name = value.name,
-        email = value.email,
-        receives_notification = value.receives_notification,
-        notification_email = value.notification_email,
-        password = value.password,
-        picture = value.picture,
-        phone = value.phone,
-        birth_date = value.birth_date,
-        gmail_access_token = value.gmail_access_token,
-        exponent_push_token = value.exponent_push_token,
-        address = address
+        name=value.name,
+        email=value.email,
+        receives_notification=value.receives_notification,
+        notification_email=value.notification_email,
+        password=value.password,
+        picture=value.picture,
+        phone=value.phone,
+        birth_date=value.birth_date,
+        gmail_access_token=value.gmail_access_token,
+        exponent_push_token=value.exponent_push_token,
+        address=address
         # partner = value.partner
     ).save()
-    return str(response.auto_id_0)
+    return str(response[0].auto_id_0)
 
 
 def return_user_by_email_and_password(email, password):
     connect(host=CONNECTION)
-    response = model.user_model.User.objects(email = email, password = password).first()
+    response = model.user_model.User.objects(email=email, password=password).first()
     response = json.loads(response.to_json()) if response is not None else None
     return response

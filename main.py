@@ -25,6 +25,7 @@ app.add_middleware(
 
 
 app.include_router(routers.user_router.router, prefix="/user", tags=["user"])
+app.include_router(routers.important_contacts_router.router, prefix="/important-contacts", tags=["important-contacts"])
 app.include_router(routers.news_router.router, prefix="/news", tags=["news"])
 app.include_router(routers.history_router.router, prefix="/history", tags=["history"])
 app.include_router(routers.wishlist_router.router, prefix="/wishlist", tags=["wishlist"])

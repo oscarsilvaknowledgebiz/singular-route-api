@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Response, status
+from fastapi import APIRouter, Response, status
 import core.schemes
 import database.user_database
 
@@ -19,9 +19,9 @@ async def create_user(user: core.schemes.user_schemes.UserPost):
 
 
 @router.get("/by-id/{email}/{password}",
-            summary= "Return user data by email and password",
-            description= "Return data of user by email and password",
-            response_model= core.schemes.user_schemes.UserGetResponse,
+            summary="Return user data by email and password",
+            description="Return data of user by email and password",
+            response_model=core.schemes.user_schemes.UserGetResponse,
             operation_id="GetUserDataByIdUser"
             )
 async def service(response: Response, email: str, password: str):
@@ -30,5 +30,4 @@ async def service(response: Response, email: str, password: str):
         response.status_code = status.HTTP_404_NOT_FOUND
         return {"msg": "error", "data": "This User does not exist"}
     else:
-        return {"msg": "success",
-            "data": response_database}
+        return {"msg": "success", "data": response_database}

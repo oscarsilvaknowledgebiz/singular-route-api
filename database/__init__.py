@@ -1,4 +1,5 @@
 from database import user_database
+from database import important_contacts_database
 from database import news_database
 from database import history_database
 from database import restaurants_database
