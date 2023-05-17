@@ -35,3 +35,9 @@ class ForgotPassword(Document):
     created = StringField()
 
 
+class UpdatePassword(Document):
+    _id = ObjectIdField()
+    email = StringField()
+    new_password = StringField()
+
+

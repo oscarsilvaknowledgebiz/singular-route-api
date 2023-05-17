@@ -67,3 +67,38 @@ def return_verify_email_and_code(user_email, code):
     response = model.user_model.ForgotPassword.objects(user_email=user_email, code=code).first()
     response = json.loads(response.to_json()) if response is not None else None
     return response
+
+
+def return_user_by_email(email):
+    connect(host=CONNECTION)
+    response = model.user_model.User.objects(email=email).first()
+    response = json.loads(response.to_json()) if response is not None else None
+    return response
+
+
+def add_recover_password(value):
+    response = model.user_model.ForgotPassword(
+        user_email=value["email"],
+        code=random.randint(000000, 999999),
+        created=str(datetime.now())
+    ).save()
+    return str(response.auto_id_0)
+
+
+def return_verify_email_and_code(user_email, code):
+    connect(host=CONNECTION)
+    response = model.user_model.ForgotPassword.objects(user_email=user_email, code=code).first()
+    response = json.loads(response.to_json()) if response is not None else None
+    return response
+
+
+def update_user_password(email, password):
+    connect(host=CONNECTION)
+    response = model.user_model.User.objects(email=email)
+    response_update = response.update(password=password)
+    if response_update == 1:
+        return True
+    else:
+        return False
+
+

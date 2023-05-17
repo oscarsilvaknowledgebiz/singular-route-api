@@ -72,3 +72,18 @@ async def service(response: Response, email: str, code: str):
                     "data": "Invalid code"}
     else:
         print("HERE")
+
+
+@router.put("update-password/{email}/{password}",
+            summary="Updates user password",
+            description="Updates user password",
+            response_model=core.schemes.user_schemes.UserUpdatePasswordResponse,
+            operation_id="UpdateUserPassword"
+            )
+async def service(response: Response,email: str, password: str):
+    response_database = database.user_database.update_user_password(email, password)
+    if response_database is False
+        return {"msg": "error", "data": "Password change failed"}
+    else:
+        return {"msg": "success",
+                "data": response_database}
