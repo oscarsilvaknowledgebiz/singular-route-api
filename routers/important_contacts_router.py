@@ -28,7 +28,7 @@ async def service(response: Response):
     response_database = database.important_contacts_database.return_important_contacts()
     if response_database is None:
         response.status_code = status.HTTP_400_BAD_REQUEST
-        return {"msg": "error", "data": "This User does not exist"}
+        return {"msg": "error", "data": "Error"}
     else:
         return {"msg": "success",
                 "data": response_database}

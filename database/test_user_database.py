@@ -1,7 +1,5 @@
-import pytest
 from database import user_database
 import core.schemes as model
-from fastapi.encoders import jsonable_encoder
 
 
 def create_user_address_data():
@@ -31,6 +29,5 @@ def create_user_data():
 
 
 def test_user_database():
-    # data = create_user_data
     response = user_database.add_user(create_user_data())
     assert response is True

@@ -1,8 +1,4 @@
-from datetime import datetime
-from typing import Optional, Union
-from pydantic import BaseModel, Field
-from pyasn1.compat.octets import null
-from fastapi import Depends
+from pydantic import BaseModel
 
 
 class WishlistPost(BaseModel):
@@ -14,6 +10,7 @@ class WishlistPost(BaseModel):
     wishlist_id_local: str
     wishlist_nome_local: str
     wishlist_date_added: str
+
 
 class WishlistCreateResponse(BaseModel):
     """
@@ -29,4 +26,3 @@ class WishlistGetResponse(BaseModel):
     """
     msg: str
     data: object = {}
-

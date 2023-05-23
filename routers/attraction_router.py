@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Response, status
+from fastapi import APIRouter, Response, status
 import core.schemes
 import database.attraction_database
 
@@ -28,7 +28,7 @@ async def service(response: Response):
     response_database = database.attraction_database.return_attraction()
     if response_database is None:
         response.status_code = status.HTTP_400_BAD_REQUEST
-        return {"msg": "error", "data": "This User does not exist"}
+        return {"msg": "error", "data": "Attraction could not be found"}
     else:
         return {"msg": "success",
                 "data": response_database}

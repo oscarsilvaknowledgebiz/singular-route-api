@@ -1,6 +1,5 @@
 import datetime
-
-from fastapi import APIRouter, HTTPException, Response, status
+from fastapi import APIRouter, Response, status
 import core.schemes
 import database.user_database
 import internal
@@ -47,6 +46,7 @@ async def service(response: Response, email: str):
     response_database = database.user_database.return_user_by_email(email)
     if response_database is None or not response_database:
         response.status_code = status.HTTP_404_NOT_FOUND
+        # function from internal to send email
         return {"msg": "error", "data": "This User does not exist"}
     else:
         database.user_database.add_recover_password(response_database)
@@ -60,7 +60,7 @@ async def service(response: Response, email: str):
             response_model=core.schemes.user_schemes.UserGetResponse,
             operation_id="VerifiesRecoveryCode"
             )
-async def service(response: Response, email: str, code: str):
+async def service(email: str, code: str):
     code = database.user_database.return_verify_email_and_code(email, code)
     if code is not None:
         response_code_verifications = internal.verify_code.diff_between_time(datetime.datetime.now(), code["created"])
@@ -80,7 +80,7 @@ async def service(response: Response, email: str, code: str):
             response_model=core.schemes.user_schemes.UserUpdatePasswordResponse,
             operation_id="UpdateUserPassword"
             )
-async def service(response: Response,email: str, password: str):
+async def service(email: str, password: str):
     response_database = database.user_database.update_user_password(email, password)
     if response_database is False:
         return {"msg": "error", "data": "Password change failed"}

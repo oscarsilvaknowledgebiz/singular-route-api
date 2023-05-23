@@ -2,7 +2,6 @@ from mongoengine import connect
 import core.models as model
 import json
 
-import core.models.history_model
 
 CONNECTION = 'mongodb+srv://basic_user:n1RmcatLryuYJwYY@knowledgebiz-cluster.m8nzdrm.mongodb.net/singular-route?retryWrites=true&w=majority'
 

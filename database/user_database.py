@@ -77,5 +77,3 @@ def update_user_password(email, password):
         return True
     else:
         return False
-
-

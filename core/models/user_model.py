@@ -1,4 +1,4 @@
-from mongoengine import DateTimeField, IntField, Document, ObjectIdField, StringField, BooleanField, EmbeddedDocumentField, EmbeddedDocument
+from mongoengine import IntField, Document, ObjectIdField, StringField, BooleanField, EmbeddedDocumentField, EmbeddedDocument
 
 
 class ModelUserAddress(EmbeddedDocument):
@@ -25,7 +25,6 @@ class User(Document):
     gmail_access_token = StringField()
     exponent_push_token = StringField()
     address = EmbeddedDocumentField(ModelUserAddress)
-    #partner = BooleanField()
 
 
 class ForgotPassword(Document):
@@ -39,5 +38,3 @@ class UpdatePassword(Document):
     _id = ObjectIdField()
     email = StringField()
     new_password = StringField()
-
-

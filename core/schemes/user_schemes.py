@@ -1,5 +1,4 @@
-from datetime import datetime
-from typing import Optional, Union
+from typing import Optional
 from pydantic import BaseModel, Field
 from pyasn1.compat.octets import null
 
@@ -28,8 +27,6 @@ class UserPost(BaseModel):
     gmail_access_token: Optional[str] = Field(default=null, alias="gmailAccessToken")
     exponent_push_token: Optional[str] = Field(default=null, alias="exponentPushToken")
     address: UserAddress
-    #partner: Optional[bool] = Field(default=False, alias="isPartner")
-
 
 class UserCreateResponse(BaseModel):
     """

@@ -1,4 +1,4 @@
-from mongoengine import Document, ObjectIdField, StringField, BooleanField, EmbeddedDocumentField, EmbeddedDocument
+from mongoengine import Document, ObjectIdField, StringField
 
 
 class ImportantContacts(Document):

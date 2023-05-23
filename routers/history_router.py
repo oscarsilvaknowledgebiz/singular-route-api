@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Response, status
+from fastapi import APIRouter, Response, status
 import core.schemes
 import database.history_database
 
@@ -19,16 +19,16 @@ async def create_history(history: core.schemes.history_schemes.HistoryPost):
 
 
 @router.get("/by-id/",
-            summary= "Return history",
-            description= "Return history",
-            response_model= core.schemes.history_schemes.HistoryGetResponse,
+            summary="Return history",
+            description="Return history",
+            response_model=core.schemes.history_schemes.HistoryGetResponse,
             operation_id="GetHistory"
             )
 async def service(response: Response):
     response_database = database.history_database.return_history()
     if response_database is None:
         response.status_code = status.HTTP_404_NOT_FOUND
-        return {"msg": "error", "data": "This User does not exist"}
+        return {"msg": "error", "data": "History could not be found"}
     else:
         return {"msg": "success",
-            "data": response_database}
+                "data": response_database}

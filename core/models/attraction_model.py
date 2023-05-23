@@ -1,5 +1,4 @@
-from mongoengine import Document, ObjectIdField, StringField, BooleanField, EmbeddedDocumentField, EmbeddedDocument
-
+from mongoengine import Document, ObjectIdField, StringField, BooleanField
 
 class Attraction(Document):
     """

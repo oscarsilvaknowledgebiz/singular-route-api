@@ -1,4 +1,4 @@
-from mongoengine import Document, ObjectIdField, StringField, BooleanField, EmbeddedDocumentField, EmbeddedDocument
+from mongoengine import Document, ObjectIdField, StringField
 
 
 class Wishlist(Document):
@@ -6,7 +6,6 @@ class Wishlist(Document):
     User model database
     """
     _id = ObjectIdField()
-    from mongoengine import Document, ObjectIdField, StringField, BooleanField, EmbeddedDocumentField, EmbeddedDocument
 
     class Wishlist(Document):
         """
@@ -17,4 +16,3 @@ class Wishlist(Document):
         wishlist_id_local = StringField()
         wishlist_nome_local = StringField()
         wishlist_date_added = StringField()
-
