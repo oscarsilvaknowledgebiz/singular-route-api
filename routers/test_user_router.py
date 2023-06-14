@@ -1,6 +1,4 @@
-import json
 import internal
-import requests
 
 
 def test_fetch_user_id():
