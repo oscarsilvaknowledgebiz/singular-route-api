@@ -4,6 +4,7 @@ import json
 import random
 from datetime import datetime
 import core.models.user_model
+import internal
 
 CONNECTION = 'mongodb+srv://basic_user:n1RmcatLryuYJwYY@knowledgebiz-cluster.m8nzdrm.mongodb.net/singular-route?retryWrites=true&w=majority'
 
@@ -36,7 +37,7 @@ def add_user(value):
         exponent_push_token=value.exponent_push_token,
         address=address
     ).save()
-    return str(response[0].auto_id_0)
+    return str(response.auto_id_0)
 
 
 def return_user_by_email_and_password(email, password):
@@ -54,11 +55,13 @@ def return_user_by_email(email):
 
 
 def add_recover_password(value):
+    code_generate = random.randint(000000, 999999)
     response = model.user_model.ForgotPassword(
         user_email=value["email"],
-        code=random.randint(000000, 999999),
+        code=code_generate,
         created=str(datetime.now())
     ).save()
+    internal.send_email.send_recovery_code(value, code_generate)
     return str(response.auto_id_0)
 
 
