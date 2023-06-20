@@ -18,3 +18,5 @@ class Attraction(Document):
     attraction_price = StringField()
     attraction_additional_information = StringField()
     attraction_personal_notes = StringField()
+    attraction_main_attraction = BooleanField()
+    attraction_sub_attractions_id = StringField()

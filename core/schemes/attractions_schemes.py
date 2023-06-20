@@ -22,6 +22,8 @@ class AttractionPost(BaseModel):
     attraction_price: str
     attraction_additional_information: Optional[str] = Field(default=null, alias="Attraction Additional Info")
     attraction_personal_notes: Optional[str] = Field(default=null, alias="Attraction Personal Notes")
+    attraction_main_attraction: bool = Field(default=True)
+    attraction_sub_attractions_id: Optional[str] = Field(default=null, alias="Id of Attractions that are part of this event")
 
 
 class AttractionCreateResponse(BaseModel):
