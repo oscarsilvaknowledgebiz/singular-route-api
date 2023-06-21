@@ -20,3 +20,7 @@ class Attraction(Document):
     attraction_personal_notes = StringField()
     attraction_main_attraction = BooleanField()
     attraction_sub_attractions_id = StringField()
+    attraction_smoke_free = BooleanField()
+    attraction_children_free = BooleanField()
+    attraction_available_parking = BooleanField()
+    attraction_pet_friendly = BooleanField()

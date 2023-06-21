@@ -29,7 +29,11 @@ def add_attraction(value):
         attraction_additional_information=value.attraction_additional_information,
         attraction_personal_notes=value.attraction_personal_notes,
         attraction_main_attraction=value.attraction_main_attraction,
-        attraction_sub_attractions_id=value.attraction_sub_attractions_id
+        attraction_sub_attractions_id=value.attraction_sub_attractions_id,
+        attraction_smoke_free = value.attraction_smoke_free,
+        attraction_children_free = value.attraction_children_free,
+        attraction_available_parking = value.attraction_available_parking,
+        attraction_pet_friendly = value.attraction_pet_friendly
     ).save()
     return str(response.auto_id_0)
 
