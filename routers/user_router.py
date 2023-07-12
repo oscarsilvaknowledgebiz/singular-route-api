@@ -20,7 +20,7 @@ async def create_user(user: core.schemes.user_schemes.UserPost):
             "data": {response}}
 
 
-@router.get("/by-id/{email}/{password}",
+@router.get("/by-email-and-password/{email}/{password}",
             summary="Return user data by email and password",
             description="Return data of user by email and password",
             response_model=core.schemes.user_schemes.UserGetResponse,
@@ -46,7 +46,6 @@ async def service(response: Response, email: str):
     response_database = database.user_database.return_user_by_email(email)
     if response_database is None or not response_database:
         response.status_code = status.HTTP_404_NOT_FOUND
-        # function from internal to send email
         return {"msg": "error", "data": "This User does not exist"}
     else:
         database.user_database.add_recover_password(response_database)
