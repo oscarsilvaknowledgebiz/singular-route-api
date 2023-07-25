@@ -9,7 +9,7 @@ app = FastAPI(
         email="geral@knowldgzebiz.pt",
         http="https://knowledgebiz.pt"
     ),
-    version="1.0.1",
+    version="1.0.2",
     title="API SINGULAR ROUTE",
     description="This API integrates with SINGULAR ROUTE system"
 )
