@@ -30,7 +30,7 @@ class User(Document):
 class ForgotPassword(Document):
     _id = ObjectIdField()
     user_email = StringField()
-    code = IntField()
+    code = StringField()
     created = StringField()
 
 

@@ -51,7 +51,7 @@ async def service(response: Response, email: str):
     else:
         database.user_database.add_recover_password(response_database)
         return {"msg": "success",
-                "data": response_database}
+                "data": "Code sent with success"}
 
 
 @router.get("/verify-recovery-code/{email}",
