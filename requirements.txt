@@ -1,6 +1,5 @@
-fastapi == 0.95.0
+fastapi == 0.86.0
 uvicorn == 0.19.0
-uuid
 starlette~=0.20.4
 py-linq~=0.1.0
 six>=1.4.0
@@ -22,3 +21,4 @@ python-socketio~=5.5.0
 websockets~=10.0.0
 fastapi-mqtt~=1.0.6
 agora-token-builder~=1.0.0
+gunicorn == 20.1.0

@@ -9,7 +9,7 @@ app = FastAPI(
         email="geral@knowldgzebiz.pt",
         http="https://knowledgebiz.pt"
     ),
-    version="1.0.0",
+    version="1.0.1",
     title="API SINGULAR ROUTE",
     description="This API integrates with SINGULAR ROUTE system"
 )
@@ -25,6 +25,15 @@ app.add_middleware(
 
 
 app.include_router(routers.user_router.router, prefix="/user", tags=["user"])
+app.include_router(routers.important_contacts_router.router, prefix="/important-contacts", tags=["important-contacts"])
+app.include_router(routers.news_router.router, prefix="/news", tags=["news"])
+app.include_router(routers.history_router.router, prefix="/history", tags=["history"])
+app.include_router(routers.wishlist_router.router, prefix="/wishlist", tags=["wishlist"])
+app.include_router(routers.restaurants_router.router, prefix="/restaurants", tags=["restaurants"])
+app.include_router(routers.attraction_router.router, prefix="/attractions", tags=["attraction"])
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=2828)
+
+
+    #teste
