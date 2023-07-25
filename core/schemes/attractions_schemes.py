@@ -20,8 +20,12 @@ class AttractionPost(BaseModel):
     attraction_price: str
     attraction_additional_information: Optional[str] = Field(default=null, alias="Attraction Additional Info")
     attraction_personal_notes: Optional[str] = Field(default=null, alias="Attraction Personal Notes")
-    attraction_pet_friendly: bool
-    attraction_no_smokers: bool
+    attraction_main_attraction: bool = Field(default=True)
+    attraction_sub_attractions_id: Optional[str] = Field(default=null, alias="Id of Attractions that are part of this event")
+    attraction_smoke_free: Optional[bool] = Field(default=False, alias="Is the attraction smokers free")
+    attraction_children_free: Optional[bool] = Field(default=False, alias="Is this attraction adult only")
+    attraction_available_parking: Optional[bool] = Field(default=False, alias="Does the attraction have available parking")
+    attraction_pet_friendly: Optional[bool] = Field(default=False, alias="Is this attraction pet friendly")
 
 
 class AttractionCreateResponse(BaseModel):
