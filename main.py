@@ -34,3 +34,6 @@ app.include_router(routers.attraction_router.router, prefix="/attractions", tags
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=2828)
+
+
+    #teste
